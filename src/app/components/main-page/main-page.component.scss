@@ -1,0 +1,42 @@
+.main-block {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: calc(100vh - 60px);
+  background-image: url("/assets/images/bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  &-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 30px;
+    max-width: 260px;
+
+    button {
+      margin: 0 auto;
+    }
+  }
+
+  .preview {
+    margin: 0 auto;
+
+    &-link {
+      display: flex;
+      justify-content: space-between;
+
+      img {
+        cursor: pointer;
+        width: 26px;
+      }
+    }
+
+    &-img {
+      max-width: 330px;
+      height: 422px;
+    }
+  }
+}

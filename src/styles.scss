@@ -1,1 +1,36 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --light-gray-color: #B3BAC1;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.container {
+  margin: 0 100px;
+}
+
+.btn {
+  cursor: pointer;
+  width: 140px;
+  height: 40px;
+  text-align: center;
+  border: 1px solid var(--light-gray-color);
+  border-radius: 2px;
+  background: transparent;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
