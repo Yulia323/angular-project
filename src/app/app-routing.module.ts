@@ -1,23 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {CatalogComponent} from './components/catalog/catalog.component';
-import {AboutComponent} from './components/about/about.component';
-import {ContactsComponent} from './components/contacts/contacts.component';
-import {BasketComponent} from "./components/basket/basket.component";
-import {PersonalAccountComponent} from "./components/personal-account/personal-account.component";
-import {MainPageComponent} from "./components/main-page/main-page.component";
 
 const routes: Routes = [
-  { path: '', component: MainPageComponent },
-  { path: 'catalog', component: CatalogComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'contacts', component: ContactsComponent },
-  { path: 'basket', component: BasketComponent },
-  { path: 'personal-account', component: PersonalAccountComponent },
+  { path: 'home', loadChildren: () => import('./pages/home-page/home-page.module').then((m) => m.HomePageModule) },
+  { path: 'catalog', loadChildren: () => import('./pages/catalog/catalog.module').then((m) => m.CatalogModule) },
+  { path: 'about', loadChildren: () => import('./pages/about/about.module').then((m) => m.AboutModule) },
+  { path: 'contacts', loadChildren: () => import('./pages/contacts/contacts.module').then((m) => m.ContactsModule) },
+  { path: 'basket', loadChildren: () => import('./pages/basket/basket.module').then((m) => m.BasketModule) },
+  {
+    path: 'personal-account',
+    loadChildren: () => import('./pages/personal-account/personal-account.module').then((m) => m.PersonalAccountModule)
+  },
+  { path: '**', redirectTo: '/home' }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

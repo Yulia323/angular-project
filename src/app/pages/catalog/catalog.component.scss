@@ -1,0 +1,19 @@
+.product-list {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.product-container {
+  &-description {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.product-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}

@@ -1,4 +1,5 @@
 :root {
+  --header-height: 60px;
   --light-gray-color: #B3BAC1;
 }
 
@@ -33,4 +34,9 @@ body {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+.icon {
+  cursor: pointer;
+  width: 26px;
 }
