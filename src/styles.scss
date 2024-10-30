@@ -1,3 +1,5 @@
+@import 'custom-theme.scss';
+
 :root {
   --header-height: 60px;
   --light-gray-color: #B3BAC1;
@@ -19,16 +21,6 @@ body {
 
 .container {
   margin: 0 100px;
-}
-
-.btn {
-  cursor: pointer;
-  width: 140px;
-  height: 40px;
-  text-align: center;
-  border: 1px solid var(--light-gray-color);
-  border-radius: 2px;
-  background: transparent;
 }
 
 a {
