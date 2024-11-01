@@ -1,0 +1,10 @@
+<header class="container">
+  <img [routerLink]="routes.Home" src="../../assets/svg/logo.svg" alt="logo" class="header-logo">
+  <nav class="header-menu">
+    <a [routerLink]="routes.Catalog">Каталог</a>
+    <a [routerLink]="routes.About">О нас</a>
+    <a [routerLink]="routes.Contacts">Контакты</a>
+    <mat-icon [routerLink]="routes.Basket" class="header-logo">shopping_cart</mat-icon>
+    <mat-icon [routerLink]="routes.PersonalAccount" class="icon">account_circle</mat-icon>
+  </nav>
+</header>
