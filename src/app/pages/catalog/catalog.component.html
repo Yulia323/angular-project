@@ -8,9 +8,13 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Поиск по катологу</mat-label>
+      <input [(ngModel)]="searchQuery" (input)="searchProducts()" matInput placeholder="" value="">
+    </mat-form-field>
   </div>
 
-  <div class="product-list">
+  <div *ngIf="filteredProducts.length > 0; else noResults" class="product-list">
     <div *ngFor="let product of filteredProducts" class="product-container">
       <img [src]="product.image" alt="product" class="product-img"/>
       <div class="product-container-description">
@@ -22,4 +26,8 @@
       </div>
     </div>
   </div>
+
+  <ng-template #noResults>
+    <p>Ничего не найдено</p>
+  </ng-template>
 </div>

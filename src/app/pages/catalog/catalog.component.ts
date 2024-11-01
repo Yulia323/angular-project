@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { Product, ProductService } from './catalog.service';
+import { Catalog, Product, ProductService } from './catalog.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
@@ -17,22 +17,28 @@ import { MatSelectModule } from '@angular/material/select';
 })
 export class CatalogPageComponent implements OnInit {
   products: Product[] = [];
-  filteredProducts: Product[] = [];
-  categories: string[] = ['Все', 'Продукты для лица', 'Продукты для тела'];
-  selectedCategory = 'Все';
+  filteredProducts: Product[] = this.products;
+  searchQuery = '';
+  categories: Catalog[] = Object.values(Catalog);
+  selectedCategory: Catalog = Catalog.All;
 
   constructor(private productService: ProductService) {}
 
-  ngOnInit() {
+  searchProducts() {
+    const query = this.searchQuery.toLowerCase();
+    this.filteredProducts = this.products.filter((product: Product) => product.description.toLowerCase().includes(query));
+  }
+
+  ngOnInit(): void {
     this.products = this.productService.getProducts();
     this.filteredProducts = this.products;
   }
 
-  filterByCategory() {
-    if (this.selectedCategory === 'Все') {
+  filterByCategory(): void {
+    if (this.selectedCategory == Catalog.All) {
       this.filteredProducts = this.products;
     } else {
-      this.filteredProducts = this.products.filter((product) => product.category.includes(this.selectedCategory));
+      this.filteredProducts = this.products.filter((product: Product) => product.category.includes(this.selectedCategory));
     }
   }
 }

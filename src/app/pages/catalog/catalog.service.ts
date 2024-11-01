@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+
 export interface Product {
   id: number;
   name: string;
@@ -71,11 +72,16 @@ export class ProductService {
     }
   ];
 
-  getProducts() {
+  getProducts(): Product[] {
     return this.products;
   }
 
-  getProductById(id: number) {
-    return this.products.find((product) => product.id === id);
+  getProductById(id: number): Product | undefined {
+    return this.products.find((product: Product) => product.id === id);
   }
+}
+export enum Catalog {
+  All = 'Все',
+  Face = 'Продукты для лица',
+  Body = 'Продукты для тела'
 }

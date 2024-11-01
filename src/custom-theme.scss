@@ -15,8 +15,7 @@ $custom-theme: mat.define-light-theme((
 @include mat.all-component-themes($custom-theme);
 
 ::ng-deep .mat-mdc-outlined-button:not(:disabled) {
-  border-color: var(--light-gray-color) !important;
-  color: black !important;
+  border-color: var(--light-gray-color);
 }
 
 .custom-btn {
@@ -28,6 +27,5 @@ $custom-theme: mat.define-light-theme((
 }
 
 .custom-btn:hover {
-  background: var(--light-gray-color);
-  color: white;
+  background: white;
 }
